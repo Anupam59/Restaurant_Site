@@ -37,7 +37,7 @@ class GalleryController extends Controller
         if ($gallery_image){
             $ImageName =time().".".$gallery_image->getClientOriginalExtension();
             $Path = "Images/gallery/";
-            $ResizeImage = Image::read($gallery_image)->resize(640,427);
+            $ResizeImage = Image::read($gallery_image)->resize(800,600);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
@@ -73,7 +73,7 @@ class GalleryController extends Controller
         if ($gallery_image){
             $ImageName =time().'.'.$gallery_image->getClientOriginalExtension();
             $Path = "Images/gallery/";
-            $ResizeImage = Image::read($gallery_image)->resize(640,427);
+            $ResizeImage = Image::read($gallery_image)->resize(800,600);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);

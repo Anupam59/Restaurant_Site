@@ -14,7 +14,6 @@ return new class extends Migration
     {
         Schema::create('platter', function (Blueprint $table) {
             $table->increments('platter_id');
-            $table->integer('menu_id');
             $table->string('platter_title',200);
             $table->string('platter_short_title',100);
             $table->text('platter_description')->nullable();

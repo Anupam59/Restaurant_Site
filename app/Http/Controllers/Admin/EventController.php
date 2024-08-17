@@ -38,7 +38,7 @@ class EventController extends Controller
         if ($event_image){
             $ImageName =time().".".$event_image->getClientOriginalExtension();
             $Path = "Images/event/";
-            $ResizeImage = Image::read($event_image)->resize(640,427);
+            $ResizeImage = Image::read($event_image)->resize(500,500);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
@@ -75,7 +75,7 @@ class EventController extends Controller
         if ($event_image){
             $ImageName =time().'.'.$event_image->getClientOriginalExtension();
             $Path = "Images/event/";
-            $ResizeImage = Image::read($event_image)->resize(640,427);
+            $ResizeImage = Image::read($event_image)->resize(500,500);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);

@@ -6,13 +6,15 @@ use App\Http\Controllers\Admin\EventController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuItemController;
+use App\Http\Controllers\Admin\PlatterController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Site\SiteController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('Site.Pages.HomePage');
-});
+Route::get('/', [SiteController::class, 'HomePage']);
+
+
 
 Route::get('/panel/dashboard', function () {
     return view('Admin.Pages.Dashboard.DashboardPage');
@@ -65,6 +67,12 @@ Route::middleware('auth')->group(function () {
     Route::post('panel/menu-item-entry', [MenuItemController::class, 'MenuItemEntry']);
     Route::get('panel/menu-item-edit/{id}', [MenuItemController::class, 'MenuItemEdit']);
     Route::post('panel/menu-item-update/{id}', [MenuItemController::class, 'MenuItemUpdate']);
+
+    Route::get('panel/platter-list', [PlatterController::class, 'PlatterIndex']);
+    Route::get('panel/platter-create', [PlatterController::class, 'PlatterCreate']);
+    Route::post('panel/platter-entry', [PlatterController::class, 'PlatterEntry']);
+    Route::get('panel/platter-edit/{id}', [PlatterController::class, 'PlatterEdit']);
+    Route::post('panel/platter-update/{id}', [PlatterController::class, 'PlatterUpdate']);
 
 });
 

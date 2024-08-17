@@ -42,7 +42,7 @@ class MenuItemController extends Controller
         if ($menu_item_image){
             $ImageName =time().".".$menu_item_image->getClientOriginalExtension();
             $Path = "Images/event/";
-            $ResizeImage = Image::read($menu_item_image)->resize(640,427);
+            $ResizeImage = Image::read($menu_item_image)->resize(400,400);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
@@ -82,7 +82,7 @@ class MenuItemController extends Controller
         if ($menu_item_image){
             $ImageName =time().'.'.$menu_item_image->getClientOriginalExtension();
             $Path = "Images/event/";
-            $ResizeImage = Image::read($menu_item_image)->resize(640,427);
+            $ResizeImage = Image::read($menu_item_image)->resize(400,400);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);

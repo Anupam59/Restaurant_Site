@@ -39,7 +39,7 @@ class ChefController extends Controller
         if ($chef_image){
             $ImageName =time().".".$chef_image->getClientOriginalExtension();
             $Path = "Images/chef/";
-            $ResizeImage = Image::read($chef_image)->resize(640,427);
+            $ResizeImage = Image::read($chef_image)->resize(600,600);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
@@ -83,7 +83,7 @@ class ChefController extends Controller
         if ($chef_image){
             $ImageName =time().'.'.$chef_image->getClientOriginalExtension();
             $Path = "Images/chef/";
-            $ResizeImage = Image::read($chef_image)->resize(640,427);
+            $ResizeImage = Image::read($chef_image)->resize(600,600);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);

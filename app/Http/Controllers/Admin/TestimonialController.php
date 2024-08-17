@@ -39,7 +39,7 @@ class TestimonialController extends Controller
         if ($testimonial_image){
             $ImageName =time().".".$testimonial_image->getClientOriginalExtension();
             $Path = "Images/testimonial/";
-            $ResizeImage = Image::read($testimonial_image)->resize(640,427);
+            $ResizeImage = Image::read($testimonial_image)->resize(400,400);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
@@ -78,7 +78,7 @@ class TestimonialController extends Controller
         if ($testimonial_image){
             $ImageName =time().'.'.$testimonial_image->getClientOriginalExtension();
             $Path = "Images/testimonial/";
-            $ResizeImage = Image::read($testimonial_image)->resize(640,427);
+            $ResizeImage = Image::read($testimonial_image)->resize(400,400);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);

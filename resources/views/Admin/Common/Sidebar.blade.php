@@ -35,38 +35,69 @@
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
-                        <i class="nav-icon fas fa-tachometer-alt"></i>
-                        <p>
-                            Starter Pages
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
-                    </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Active Page</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-circle nav-icon"></i>
-                                <p>Inactive Page</p>
-                            </a>
-                        </li>
-                    </ul>
-                </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">
+                    <a href="{{ url('/panel/') }}/dashboard" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
-                        <p>
-                            Simple Link
-                            <span class="right badge badge-danger">New</span>
-                        </p>
+                        <p>Dashboard</p>
                     </a>
                 </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/panel/') }}/common-page-list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Common Page</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/panel/') }}/event-list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Event</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/panel/') }}/gallery-list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Gallery</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/panel/') }}/testimonial-list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Testimonial</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/panel/') }}/chef-list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Chef</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/panel/') }}/menu-list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Menu</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/panel/') }}/menu-item-list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>MenuItem</p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ url('/panel/') }}/platter-list" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Platter</p>
+                    </a>
+                </li>
+
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

@@ -41,7 +41,7 @@ class CommonPageController extends Controller
         if ($page_image){
             $ImageName =time().".".$page_image->getClientOriginalExtension();
             $Path = "Images/common/";
-            $ResizeImage = Image::read($page_image)->resize(640,427);
+            $ResizeImage = Image::read($page_image)->resize(600,446);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
@@ -81,7 +81,7 @@ class CommonPageController extends Controller
         if ($page_image){
             $ImageName =time().'.'.$page_image->getClientOriginalExtension();
             $Path = "Images/common/";
-            $ResizeImage = Image::read($page_image)->resize(640,427);
+            $ResizeImage = Image::read($page_image)->resize(600,446);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
