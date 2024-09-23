@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/panel/') }}/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">Testimonial Create</li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="card card-default">
 
                     <div class="card-header">
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/testimonial-list">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/testimonial-list">
                             All Data
                         </a>
 
@@ -62,7 +62,7 @@
 
                         @endif
 
-                        <form action="{{ url('panel/testimonial-entry') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/testimonial-entry') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
@@ -80,10 +80,10 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input type="text" class="form-control" value="{{ old('testimonial_description') }}" name="testimonial_description" placeholder="Description">
+                                        <textarea class="form-control" id="testimonial_description" name="testimonial_description" placeholder="Description ...">{{ old('testimonial_description') }}</textarea>
                                     </div>
                                 </div>
 
@@ -109,6 +109,9 @@
 
 @section('AdminScript')
     <script>
-
+        $('#testimonial_description').summernote({
+            placeholder: 'News Description',
+            height: 120,
+        });
     </script>
 @endsection

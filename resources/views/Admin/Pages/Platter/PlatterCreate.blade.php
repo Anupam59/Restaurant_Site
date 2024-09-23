@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/panel/') }}/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">Platter Create</li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="card card-default">
 
                     <div class="card-header">
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/platter-list">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/platter-list">
                             All Data
                         </a>
 
@@ -62,7 +62,7 @@
 
                         @endif
 
-                        <form action="{{ url('panel/platter-entry') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/platter-entry') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
@@ -80,10 +80,10 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                     <div class="form-group">
                                         <label>Description</label>
-                                        <input type="text" class="form-control" value="{{ old('platter_description') }}" name="platter_description" placeholder="Description">
+                                        <textarea class="form-control" id="platter_description" name="platter_description" placeholder="Description ...">{{ old('platter_description') }}</textarea>
                                     </div>
                                 </div>
 
@@ -117,6 +117,9 @@
 
 @section('AdminScript')
     <script>
-
+        $('#platter_description').summernote({
+            placeholder: 'News Description',
+            height: 120,
+        });
     </script>
 @endsection

@@ -7,6 +7,7 @@ use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\MenuController;
 use App\Http\Controllers\Admin\MenuItemController;
 use App\Http\Controllers\Admin\PlatterController;
+use App\Http\Controllers\Admin\SiteCommonController;
 use App\Http\Controllers\Admin\TestimonialController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Site\SiteController;
@@ -16,7 +17,7 @@ Route::get('/', [SiteController::class, 'HomePage']);
 
 
 
-Route::get('/panel/dashboard', function () {
+Route::get('/admin/dashboard', function () {
     return view('Admin.Pages.Dashboard.DashboardPage');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
@@ -26,53 +27,60 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 
 
-    Route::get('panel/common-page-list', [CommonPageController::class, 'CommonPageIndex']);
-    Route::get('panel/common-page-create', [CommonPageController::class, 'CommonPageCreate']);
-    Route::post('panel/common-page-entry', [CommonPageController::class, 'CommonPageEntry']);
-    Route::get('panel/common-page-edit/{id}', [CommonPageController::class, 'CommonPageEdit']);
-    Route::post('panel/common-page-update/{id}', [CommonPageController::class, 'CommonPageUpdate']);
+    Route::get('admin/common-page-list', [CommonPageController::class, 'CommonPageIndex']);
+    Route::get('admin/common-page-create', [CommonPageController::class, 'CommonPageCreate']);
+    Route::post('admin/common-page-entry', [CommonPageController::class, 'CommonPageEntry']);
+    Route::get('admin/common-page-edit/{id}', [CommonPageController::class, 'CommonPageEdit']);
+    Route::post('admin/common-page-update/{id}', [CommonPageController::class, 'CommonPageUpdate']);
 
-    Route::get('panel/event-list', [EventController::class, 'EventIndex']);
-    Route::get('panel/event-create', [EventController::class, 'EventCreate']);
-    Route::post('panel/event-entry', [EventController::class, 'EventEntry']);
-    Route::get('panel/event-edit/{id}', [EventController::class, 'EventEdit']);
-    Route::post('panel/event-update/{id}', [EventController::class, 'EventUpdate']);
+    Route::get('admin/event-list', [EventController::class, 'EventIndex']);
+    Route::get('admin/event-create', [EventController::class, 'EventCreate']);
+    Route::post('admin/event-entry', [EventController::class, 'EventEntry']);
+    Route::get('admin/event-edit/{id}', [EventController::class, 'EventEdit']);
+    Route::post('admin/event-update/{id}', [EventController::class, 'EventUpdate']);
 
-    Route::get('panel/gallery-list', [GalleryController::class, 'GalleryIndex']);
-    Route::get('panel/gallery-create', [GalleryController::class, 'GalleryCreate']);
-    Route::post('panel/gallery-entry', [GalleryController::class, 'GalleryEntry']);
-    Route::get('panel/gallery-edit/{id}', [GalleryController::class, 'GalleryEdit']);
-    Route::post('panel/gallery-update/{id}', [GalleryController::class, 'GalleryUpdate']);
+    Route::get('admin/gallery-list', [GalleryController::class, 'GalleryIndex']);
+    Route::get('admin/gallery-create', [GalleryController::class, 'GalleryCreate']);
+    Route::post('admin/gallery-entry', [GalleryController::class, 'GalleryEntry']);
+    Route::get('admin/gallery-edit/{id}', [GalleryController::class, 'GalleryEdit']);
+    Route::post('admin/gallery-update/{id}', [GalleryController::class, 'GalleryUpdate']);
 
-    Route::get('panel/testimonial-list', [TestimonialController::class, 'TestimonialIndex']);
-    Route::get('panel/testimonial-create', [TestimonialController::class, 'TestimonialCreate']);
-    Route::post('panel/testimonial-entry', [TestimonialController::class, 'TestimonialEntry']);
-    Route::get('panel/testimonial-edit/{id}', [TestimonialController::class, 'TestimonialEdit']);
-    Route::post('panel/testimonial-update/{id}', [TestimonialController::class, 'TestimonialUpdate']);
+    Route::get('admin/testimonial-list', [TestimonialController::class, 'TestimonialIndex']);
+    Route::get('admin/testimonial-create', [TestimonialController::class, 'TestimonialCreate']);
+    Route::post('admin/testimonial-entry', [TestimonialController::class, 'TestimonialEntry']);
+    Route::get('admin/testimonial-edit/{id}', [TestimonialController::class, 'TestimonialEdit']);
+    Route::post('admin/testimonial-update/{id}', [TestimonialController::class, 'TestimonialUpdate']);
 
-    Route::get('panel/chef-list', [ChefController::class, 'ChefIndex']);
-    Route::get('panel/chef-create', [ChefController::class, 'ChefCreate']);
-    Route::post('panel/chef-entry', [ChefController::class, 'ChefEntry']);
-    Route::get('panel/chef-edit/{id}', [ChefController::class, 'ChefEdit']);
-    Route::post('panel/chef-update/{id}', [ChefController::class, 'ChefUpdate']);
+    Route::get('admin/chef-list', [ChefController::class, 'ChefIndex']);
+    Route::get('admin/chef-create', [ChefController::class, 'ChefCreate']);
+    Route::post('admin/chef-entry', [ChefController::class, 'ChefEntry']);
+    Route::get('admin/chef-edit/{id}', [ChefController::class, 'ChefEdit']);
+    Route::post('admin/chef-update/{id}', [ChefController::class, 'ChefUpdate']);
 
-    Route::get('panel/menu-list', [MenuController::class, 'MenuIndex']);
-    Route::get('panel/menu-create', [MenuController::class, 'MenuCreate']);
-    Route::post('panel/menu-entry', [MenuController::class, 'MenuEntry']);
-    Route::get('panel/menu-edit/{id}', [MenuController::class, 'MenuEdit']);
-    Route::post('panel/menu-update/{id}', [MenuController::class, 'MenuUpdate']);
+    Route::get('admin/menu-list', [MenuController::class, 'MenuIndex']);
+    Route::get('admin/menu-create', [MenuController::class, 'MenuCreate']);
+    Route::post('admin/menu-entry', [MenuController::class, 'MenuEntry']);
+    Route::get('admin/menu-edit/{id}', [MenuController::class, 'MenuEdit']);
+    Route::post('admin/menu-update/{id}', [MenuController::class, 'MenuUpdate']);
 
-    Route::get('panel/menu-item-list', [MenuItemController::class, 'MenuItemIndex']);
-    Route::get('panel/menu-item-create', [MenuItemController::class, 'MenuItemCreate']);
-    Route::post('panel/menu-item-entry', [MenuItemController::class, 'MenuItemEntry']);
-    Route::get('panel/menu-item-edit/{id}', [MenuItemController::class, 'MenuItemEdit']);
-    Route::post('panel/menu-item-update/{id}', [MenuItemController::class, 'MenuItemUpdate']);
+    Route::get('admin/menu-item-list', [MenuItemController::class, 'MenuItemIndex']);
+    Route::get('admin/menu-item-create', [MenuItemController::class, 'MenuItemCreate']);
+    Route::post('admin/menu-item-entry', [MenuItemController::class, 'MenuItemEntry']);
+    Route::get('admin/menu-item-edit/{id}', [MenuItemController::class, 'MenuItemEdit']);
+    Route::post('admin/menu-item-update/{id}', [MenuItemController::class, 'MenuItemUpdate']);
 
-    Route::get('panel/platter-list', [PlatterController::class, 'PlatterIndex']);
-    Route::get('panel/platter-create', [PlatterController::class, 'PlatterCreate']);
-    Route::post('panel/platter-entry', [PlatterController::class, 'PlatterEntry']);
-    Route::get('panel/platter-edit/{id}', [PlatterController::class, 'PlatterEdit']);
-    Route::post('panel/platter-update/{id}', [PlatterController::class, 'PlatterUpdate']);
+    Route::get('admin/platter-list', [PlatterController::class, 'PlatterIndex']);
+    Route::get('admin/platter-create', [PlatterController::class, 'PlatterCreate']);
+    Route::post('admin/platter-entry', [PlatterController::class, 'PlatterEntry']);
+    Route::get('admin/platter-edit/{id}', [PlatterController::class, 'PlatterEdit']);
+    Route::post('admin/platter-update/{id}', [PlatterController::class, 'PlatterUpdate']);
+
+    Route::get('admin/site-info', [SiteCommonController::class, 'SiteInfo']);
+    Route::post('admin/site-info-update', [SiteCommonController::class, 'SiteInfoUpdate']);
+    Route::get('admin/site-social-media', [SiteCommonController::class, 'SiteSocialMedia']);
+    Route::post('admin/site-social-media-update', [SiteCommonController::class, 'SiteSocialMediaUpdate']);
+    Route::get('admin/site-data', [SiteCommonController::class, 'SiteData']);
+    Route::post('admin/site-data-update', [SiteCommonController::class, 'SiteDataUpdate']);
 
 });
 

@@ -33,12 +33,13 @@ class EventController extends Controller
         $data =  array();
         $data['event_title'] = $request->event_title;
         $data['event_description'] = $request->event_description;
+        $data['event_price'] = $request->event_price;
 
         $event_image =  $request->file('event_image');
         if ($event_image){
             $ImageName =time().".".$event_image->getClientOriginalExtension();
             $Path = "Images/event/";
-            $ResizeImage = Image::read($event_image)->resize(500,500);
+            $ResizeImage = Image::read($event_image)->resize(600,400);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
@@ -70,12 +71,13 @@ class EventController extends Controller
         $data =  array();
         $data['event_title'] = $request->event_title;
         $data['event_description'] = $request->event_description;
+        $data['event_price'] = $request->event_price;
 
         $event_image =  $request->file('event_image');
         if ($event_image){
             $ImageName =time().'.'.$event_image->getClientOriginalExtension();
             $Path = "Images/event/";
-            $ResizeImage = Image::read($event_image)->resize(500,500);
+            $ResizeImage = Image::read($event_image)->resize(600,400);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);

@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/panel/') }}/">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/">Dashboard</a></li>
                             <li class="breadcrumb-item active">Event</li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/event-create">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/event-create">
                             Add <i class="fas fa-plus"></i>
                         </a>
 
@@ -56,6 +56,9 @@
                                     Title
                                 </th>
                                 <th class="text-center">
+                                    Price
+                                </th>
+                                <th class="text-center">
                                     Status
                                 </th>
                                 <th style="width: 20%" class="text-right">
@@ -73,6 +76,9 @@
                                     <td>
                                         <a>{{ $EventItem->event_title }}</a>
                                     </td>
+                                    <td>
+                                        <a>{{ $EventItem->event_price }}</a>
+                                    </td>
                                     <td class="project-state">
                                         @if($EventItem->status == 1)
                                             <span class="badge badge-success">Active</span>
@@ -81,7 +87,7 @@
                                         @endif
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm" href="{{ url('/panel/') }}/event-edit/{{ $EventItem->event_id }}">
+                                        <a class="btn btn-primary btn-sm" href="{{ url('/admin/') }}/event-edit/{{ $EventItem->event_id }}">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                         <a class="btn btn-danger btn-sm" href="#">
@@ -107,7 +113,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/event-create">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/event-create">
                             Add <i class="fas fa-plus"></i>
                         </a>
 

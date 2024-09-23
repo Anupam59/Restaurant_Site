@@ -8,8 +8,8 @@
 
     <!-- Sidebar -->
     <div class="sidebar">
-        <!-- Sidebar user panel (optional) -->
-        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+        <!-- Sidebar user admin (optional) -->
+        <div class="user-admin mt-3 pb-3 mb-3 d-flex">
             <div class="image">
                 <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
             </div>
@@ -36,63 +36,97 @@
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/dashboard" class="nav-link">
+                    <a href="{{ url('/admin/') }}/dashboard" class="nav-link">
                         <i class="nav-icon fas fa-th"></i>
                         <p>Dashboard</p>
                     </a>
                 </li>
 
+
+
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/common-page-list" class="nav-link">
+                    <a href="#" class="nav-link active">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
+                        <p>
+                            Site Information
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/') }}/site-data" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Site Data</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/') }}/site-info" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Site Info</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ url('/admin/') }}/site-social-media" class="nav-link">
+                                <i class="fa fa-circle nav-icon"></i>
+                                <p>Site Media</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+
+
+                <li class="nav-item">
+                    <a href="{{ url('/admin/') }}/common-page-list" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Common Page</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/event-list" class="nav-link">
+                    <a href="{{ url('/admin/') }}/event-list" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Event</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/gallery-list" class="nav-link">
+                    <a href="{{ url('/admin/') }}/gallery-list" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Gallery</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/testimonial-list" class="nav-link">
+                    <a href="{{ url('/admin/') }}/testimonial-list" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Testimonial</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/chef-list" class="nav-link">
+                    <a href="{{ url('/admin/') }}/chef-list" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Chef</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/menu-list" class="nav-link">
+                    <a href="{{ url('/admin/') }}/menu-list" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Menu</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/menu-item-list" class="nav-link">
+                    <a href="{{ url('/admin/') }}/menu-item-list" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>MenuItem</p>
                     </a>
                 </li>
 
                 <li class="nav-item">
-                    <a href="{{ url('/panel/') }}/platter-list" class="nav-link">
+                    <a href="{{ url('/admin/') }}/platter-list" class="nav-link">
                         <i class="far fa-circle nav-icon"></i>
                         <p>Platter</p>
                     </a>

@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/panel/') }}/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">Common Page Create</li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="card card-default">
 
                     <div class="card-header">
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/common-page-list">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/common-page-list">
                             All Data
                         </a>
 
@@ -62,7 +62,7 @@
 
                         @endif
 
-                        <form action="{{ url('panel/common-page-entry') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/common-page-entry') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
@@ -75,8 +75,15 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
+                                        <label>Image</label>
+                                        <input type="file" class="form-control" name="page_image">
+                                    </div>
+                                </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
                                         <label>Description</label>
-                                        <input type="text" class="form-control" value="{{ old('page_description') }}" name="page_description" placeholder="Description">
+                                        <textarea class="form-control" id="page_description" name="page_description" placeholder="Description ...">{{ old('page_description') }}</textarea>
                                     </div>
                                 </div>
 
@@ -84,13 +91,6 @@
                                     <div class="form-group">
                                         <label>Page Link</label>
                                         <input type="text" class="form-control" value="{{ old('page_link') }}" name="page_link" placeholder="Page Link">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" class="form-control" name="page_image">
                                     </div>
                                 </div>
 
@@ -109,6 +109,9 @@
 
 @section('AdminScript')
     <script>
-
+        $('#page_description').summernote({
+            placeholder: 'News Description',
+            height: 120,
+        });
     </script>
 @endsection

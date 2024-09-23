@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/panel/') }}/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">Menu Create</li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="card card-default">
 
                     <div class="card-header">
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/menu-list">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/menu-list">
                             All Data
                         </a>
 
@@ -62,7 +62,7 @@
 
                         @endif
 
-                        <form action="{{ url('panel/menu-entry') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/menu-entry') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 

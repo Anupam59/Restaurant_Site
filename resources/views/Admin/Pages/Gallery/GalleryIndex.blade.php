@@ -10,7 +10,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/panel/') }}/">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/">Dashboard</a></li>
                             <li class="breadcrumb-item active">Gallery</li>
                         </ol>
                     </div>
@@ -31,7 +31,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/gallery-create">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/gallery-create">
                             Add <i class="fas fa-plus"></i>
                         </a>
 
@@ -81,7 +81,7 @@
                                         @endif
                                     </td>
                                     <td class="project-actions text-right">
-                                        <a class="btn btn-primary btn-sm" href="{{ url('/panel/') }}/gallery-edit/{{ $GalleryItem->gallery_id }}">
+                                        <a class="btn btn-primary btn-sm" href="{{ url('/admin/') }}/gallery-edit/{{ $GalleryItem->gallery_id }}">
                                             <i class="fas fa-pencil-alt"></i>
                                         </a>
                                         <a class="btn btn-danger btn-sm" href="#">
@@ -107,7 +107,7 @@
                 <div class="card">
                     <div class="card-header">
 
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/gallery-create">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/gallery-create">
                             Add <i class="fas fa-plus"></i>
                         </a>
 

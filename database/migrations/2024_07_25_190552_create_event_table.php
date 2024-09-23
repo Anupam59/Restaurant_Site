@@ -15,6 +15,7 @@ return new class extends Migration
         Schema::create('event', function (Blueprint $table) {
             $table->increments('event_id');
             $table->string('event_title',200);
+            $table->integer('event_price')->nullable();
             $table->text('event_description')->nullable();
             $table->string('event_image',100)->nullable();
 

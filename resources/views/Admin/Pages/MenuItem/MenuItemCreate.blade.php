@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/panel/') }}/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">MenuItem Create</li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="card card-default">
 
                     <div class="card-header">
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/menu-item-list">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/menu-item-list">
                             All Data
                         </a>
 
@@ -62,7 +62,7 @@
 
                         @endif
 
-                        <form action="{{ url('panel/menu-item-entry') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/menu-item-entry') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
@@ -75,18 +75,17 @@
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Description</label>
-                                        <input type="text" class="form-control" value="{{ old('menu_item_description') }}" name="menu_item_description" placeholder="Description">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
                                         <label>Price</label>
                                         <input type="number" class="form-control" value="{{ old('menu_item_price') }}" name="menu_item_price" placeholder="Price">
                                     </div>
                                 </div>
 
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" id="menu_item_description" name="menu_item_description" placeholder="Description ...">{{ old('menu_item_description') }}</textarea>
+                                    </div>
+                                </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
@@ -127,6 +126,9 @@
 
 @section('AdminScript')
     <script>
-
+        $('#menu_item_description').summernote({
+            placeholder: 'News Description',
+            height: 120,
+        });
     </script>
 @endsection

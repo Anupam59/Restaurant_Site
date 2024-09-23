@@ -5,18 +5,17 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Chef Update</h1>
+                        <h1>Site Info</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/dashboard">Dashboard</a></li>
-                            <li class="breadcrumb-item active">Chef Update</li>
+                            <li class="breadcrumb-item active">Site Info</li>
                         </ol>
                     </div>
                 </div>
             </div>
         </section>
-
 
 
         <!-- Main content -->
@@ -25,24 +24,7 @@
 
                 <div class="card card-default">
 
-                    <div class="card-header">
-
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/chef-list">
-                            All Data
-                        </a>
-
-
-                        <div class="card-tools">
-                            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                                <i class="fas fa-minus"></i>
-                            </button>
-                        </div>
-                    </div>
-
-
-
                     <div class="card-body">
-
 
                         @if ($errors->any())
                             <div class="alert alert-default-danger">
@@ -67,104 +49,98 @@
 
                         @endif
 
-                        <form action="{{ url('admin/chef-update/'.$Chef->chef_id)}}" method="post" enctype="multipart/form-data">
+
+                        <form action="{{ url('admin/site-info-update')}}" method="post" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row">
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Title</label>
-                                        <input type="text" class="form-control" value="{{ $Chef->chef_name }}" name="chef_name" placeholder="Title">
+                                        <label>time zone</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->time_zone }}" name="time_zone" placeholder="time zone">
                                     </div>
                                 </div>
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Designation</label>
-                                        <input type="text" class="form-control" value="{{ $Chef->chef_designation }}" name="chef_designation" placeholder="Designation">
+                                        <label>site name</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->site_name }}" name="site_name" placeholder="site name">
                                     </div>
                                 </div>
 
-                                <div class="col-md-12">
+                                <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Description</label>
-                                        <textarea class="form-control" id="chef_description" name="chef_description" placeholder="Description ...">{{ $Chef->chef_description }}</textarea>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Image</label>
-                                        <input type="file" class="form-control" name="chef_image">
-                                    </div>
-                                </div>
-
-                                <div class="col-md-2">
-                                    <div class="text-center">
-                                        <img class="img-fluid w-100 rounded" src="{{asset($Chef->chef_image)}}" alt="Photo">
+                                        <label>site title</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->site_title }}" name="site_title" placeholder="site title">
                                     </div>
                                 </div>
 
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>twitter_link</label>
-                                        <input type="text" class="form-control" value="{{ $Chef->twitter_link }}" name="twitter_link" placeholder="twitter link">
+                                        <label>site email</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->site_email }}" name="site_email" placeholder="site email">
                                     </div>
                                 </div>
 
-
-
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>facebook_link</label>
-                                        <input type="text" class="form-control" value="{{ $Chef->facebook_link }}" name="facebook_link" placeholder="facebook link">
+                                        <label>site contact</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->site_contact }}" name="site_contact" placeholder="site contact">
                                     </div>
                                 </div>
 
-
-
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>instagram_link</label>
-                                        <input type="text" class="form-control" value="{{ $Chef->instagram_link }}" name="instagram_link" placeholder="instagram link">
+                                        <label>site address</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->site_address }}" name="site_address" placeholder="site address">
                                     </div>
                                 </div>
 
-
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>linkedin_link</label>
-                                        <input type="text" class="form-control" value="{{ $Chef->linkedin_link }}" name="linkedin_link" placeholder="linkedin link">
+                                        <label>site description</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->site_description }}" name="site_description" placeholder="site description">
                                     </div>
                                 </div>
 
-
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Position</label>
-                                        <input type="number" class="form-control" value="{{ $Chef->position }}" name="position">
+                                        <label>site time</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->site_time }}" name="site_time" placeholder="site time">
                                     </div>
                                 </div>
 
 
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label>Status</label>
-                                        <select class="form-control" id="chef_status" name="status">
-                                            <option value="" selected="selected">Select One</option>
-                                            <option value="1" @if($Chef->status == "1") {{ 'selected' }} @endif>Active</option>
-                                            <option value="2" @if($Chef->status == "2") {{ 'selected' }} @endif>Inactive</option>
-                                        </select>
+                                        <label>site link</label>
+                                        <input type="text" class="form-control" value="{{ $SiteCommon->site_link }}" name="site_link" placeholder="site link">
                                     </div>
                                 </div>
 
+
+                                <input id="showTagId" type="text" class="form-control d-none" name="site_keyword" value="{{ $SiteCommon->site_keyword }}" placeholder="Site Keyword">
+                                <div class="col-md-12 tag_input">
+                                    <div class="wrapper">
+                                        <div class="title">
+                                            <label>site keyword</label>
+                                            <a id="removeBtn">All <i class="fas fa-trash"></i></a>
+                                        </div>
+                                        <div class="content">
+                                            <ul id="ulId">
+                                                <input id="inputId" type="text" spellcheck="false">
+                                            </ul>
+                                            <p><span id="detailsItem">10</span> tags are remaining</p>
+                                        </div>
+                                    </div>
+                                </div>
 
                                 <div class="col-md-12 text-center mt-3">
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </div>
+
                             </div>
                         </form>
                     </div>
@@ -177,10 +153,7 @@
 
 @section('AdminScript')
     <script>
-        $('#chef_status').select2();
-        $('#chef_description').summernote({
-            placeholder: 'News Description',
-            height: 120,
-        });
+
+
     </script>
 @endsection

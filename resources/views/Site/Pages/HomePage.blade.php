@@ -1,5 +1,6 @@
 @extends('Site.Layout.SiteLayout')
 @section('SiteContent')
+
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex align-items-center">
     <div class="container position-relative text-center text-lg-start" data-aos="zoom-in" data-aos-delay="100">
@@ -21,7 +22,11 @@
     </div>
 </section><!-- End Hero -->
 
+
+
 <main id="main">
+
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
         <div class="container" data-aos="fade-up">
@@ -53,6 +58,8 @@
 
         </div>
     </section><!-- End About Section -->
+
+
 
     <!-- ======= Why Us Section ======= -->
     <section id="why-us" class="why-us">
@@ -93,6 +100,8 @@
 
         </div>
     </section><!-- End Why Us Section -->
+
+
 
     <!-- ======= Menu Section ======= -->
     <section id="menu" class="menu section-bg">
@@ -211,6 +220,8 @@
         </div>
     </section><!-- End Menu Section -->
 
+
+
     <!-- ======= Specials Section ======= -->
     <section id="specials" class="specials">
         <div class="container" data-aos="fade-up">
@@ -309,105 +320,42 @@
         </div>
     </section><!-- End Specials Section -->
 
+
+
+@if(!$Event->isEmpty())
     <!-- ======= Events Section ======= -->
     <section id="events" class="events">
         <div class="container" data-aos="fade-up">
-
             <div class="section-title">
                 <h2>Events</h2>
                 <p>Organize Your Events in our Restaurant</p>
             </div>
-
             <div class="events-slider swiper-container" data-aos="fade-up" data-aos-delay="100">
                 <div class="swiper-wrapper">
-
+                    @foreach($Event as $key=>$EventItem)
                     <div class="swiper-slide">
                         <div class="row event-item">
                             <div class="col-lg-6">
-                                <img src="{{ asset('Site/img/event-birthday.jpg') }}" class="img-fluid" alt="">
+                                <img src="{{asset($EventItem->event_image)}}" class="img-fluid" alt="">
                             </div>
                             <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Birthday Parties</h3>
+                                <h3>{{ $EventItem->event_title }}</h3>
                                 <div class="price">
-                                    <p><span>$189</span></p>
+                                    <p><span>${{ $EventItem->event_price }}</span></p>
                                 </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
+                                <p>{!! $EventItem->event_description !!}</p>
                             </div>
                         </div>
                     </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="row event-item">
-                            <div class="col-lg-6">
-                                <img src="{{ asset('Site/img/event-private.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Private Parties</h3>
-                                <div class="price">
-                                    <p><span>$290</span></p>
-                                </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
-                    <div class="swiper-slide">
-                        <div class="row event-item">
-                            <div class="col-lg-6">
-                                <img src="{{ asset('Site/img/event-custom.jpg') }}" class="img-fluid" alt="">
-                            </div>
-                            <div class="col-lg-6 pt-4 pt-lg-0 content">
-                                <h3>Custom Parties</h3>
-                                <div class="price">
-                                    <p><span>$99</span></p>
-                                </div>
-                                <p class="fst-italic">
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
-                                    magna aliqua.
-                                </p>
-                                <ul>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                    <li><i class="bi bi-check-circled"></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                                    <li><i class="bi bi-check-circled"></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                                </ul>
-                                <p>
-                                    Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-                                    velit esse cillum dolore eu fugiat nulla pariatur
-                                </p>
-                            </div>
-                        </div>
-                    </div><!-- End testimonial item -->
-
+                    @endforeach
                 </div>
                 <div class="swiper-pagination"></div>
             </div>
 
         </div>
     </section><!-- End Events Section -->
+@endif
+
 
     <!-- ======= Book A Table Section ======= -->
     <section id="book-a-table" class="book-a-table">
@@ -459,6 +407,8 @@
 
         </div>
     </section><!-- End Book A Table Section -->
+
+
 
     <!-- ======= Testimonials Section ======= -->
     <section id="testimonials" class="testimonials section-bg">
@@ -544,6 +494,8 @@
         </div>
     </section><!-- End Testimonials Section -->
 
+
+
     <!-- ======= Gallery Section ======= -->
     <section id="gallery" class="gallery">
 
@@ -627,6 +579,8 @@
         </div>
     </section><!-- End Gallery Section -->
 
+
+
     <!-- ======= Chefs Section ======= -->
     <section id="chefs" class="chefs">
         <div class="container" data-aos="fade-up">
@@ -696,6 +650,8 @@
 
         </div>
     </section><!-- End Chefs Section -->
+
+
 
     <!-- ======= Contact Section ======= -->
     <section id="contact" class="contact">
@@ -779,6 +735,7 @@
 
         </div>
     </section><!-- End Contact Section -->
+
 
 </main><!-- End #main -->
 @endsection

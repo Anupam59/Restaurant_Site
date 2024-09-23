@@ -9,7 +9,7 @@
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="{{ url('/panel/') }}/dashboard">Dashboard</a></li>
+                            <li class="breadcrumb-item"><a href="{{ url('/admin/') }}/dashboard">Dashboard</a></li>
                             <li class="breadcrumb-item active">Event Create</li>
                         </ol>
                     </div>
@@ -26,7 +26,7 @@
                 <div class="card card-default">
 
                     <div class="card-header">
-                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/panel/') }}/event-list">
+                        <a class="btn btn-danger btn-sm add_btn" href="{{ url('/admin/') }}/event-list">
                             All Data
                         </a>
 
@@ -62,7 +62,7 @@
 
                         @endif
 
-                        <form action="{{ url('panel/event-entry') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ url('admin/event-entry') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="row">
 
@@ -73,19 +73,27 @@
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
-                                        <label>Description</label>
-                                        <input type="text" class="form-control" value="{{ old('event_description') }}" name="event_description" placeholder="Description">
+                                        <label>Price</label>
+                                        <input type="number" class="form-control" value="{{ old('event_price') }}" name="event_price" placeholder="Price">
                                     </div>
                                 </div>
 
-                                <div class="col-md-6">
+                                <div class="col-md-3">
                                     <div class="form-group">
                                         <label>Image</label>
                                         <input type="file" class="form-control" name="event_image">
                                     </div>
                                 </div>
+
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" id="event_description" name="event_description" placeholder="Description ...">{{ old('event_description') }}</textarea>
+                                    </div>
+                                </div>
+
 
                                 <div class="col-md-12 text-center">
                                     <button type="submit" class="btn btn-primary">Create</button>
@@ -102,6 +110,9 @@
 
 @section('AdminScript')
     <script>
-
+        $('#event_description').summernote({
+            placeholder: 'News Description',
+            height: 120,
+        });
     </script>
 @endsection

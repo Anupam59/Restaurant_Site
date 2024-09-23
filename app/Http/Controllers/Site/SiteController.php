@@ -18,7 +18,11 @@ class SiteController extends Controller
         $Menu = MenuModel::where('status','=',1)->orderBy('menu_id','desc')->get();
         $MenuItem = MenuItemModel::where('status','=',1)->orderBy('menu_item_id','desc')->get();
         $Platter = PlatterModel::where('status','=',1)->orderBy('platter_id','desc')->get();
-        $Event = EventModel::where('status','=',1)->orderBy('event_id','desc')->get();
+
+//        $Event = EventModel::where('status','=',1)->orderBy('event_id','desc')->get();
+        $Event = EventModel::where('status','=',1)->inRandomOrder()->limit(3)->get();
+
+
         $Gallery = GalleryModel::where('status','=',1)->orderBy('gallery_id','desc')->get();
         $Testimonial = TestimonialModel::where('status','=',1)->orderBy('testimonial_id','desc')->get();
         $Chef = ChefModel::where('status','=',1)->orderBy('chef_id','desc')->get();
