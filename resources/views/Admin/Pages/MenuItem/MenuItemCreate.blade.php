@@ -76,7 +76,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Price</label>
-                                        <input type="number" class="form-control" value="{{ old('menu_item_price') }}" name="menu_item_price" placeholder="Price">
+                                        <input type="number" step="0.01" class="form-control" value="{{ old('menu_item_price') }}" name="menu_item_price" placeholder="Price">
                                     </div>
                                 </div>
 

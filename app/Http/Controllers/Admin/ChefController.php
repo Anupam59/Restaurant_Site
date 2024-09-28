@@ -58,9 +58,9 @@ class ChefController extends Controller
         $data['modified_date'] = date("Y-m-d h:i:s");
         $res = ChefModel::insert($data);
         if ($res){
-            return back()->with('success_message','Common Page Add Successfully!');
+            return back()->with('success_message','Chef Add Successfully!');
         }else{
-            return back()->with('error_message','Common Page Add Fail!');
+            return back()->with('error_message','Chef Add Fail!');
         }
     }
 

@@ -82,7 +82,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Price</label>
-                                        <input type="number" class="form-control" value="{{ $MenuItem->menu_item_price }}" name="menu_item_price" placeholder="Price">
+                                        <input type="number" step="0.01" class="form-control" value="{{ $MenuItem->menu_item_price }}" name="menu_item_price" placeholder="Price">
                                     </div>
                                 </div>
 
@@ -96,7 +96,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label>Menu</label>
-                                        <select class="form-control select2" id="cat_id" name="cat_id" required>
+                                        <select class="form-control select2" id="menu_id" name="menu_id" required>
                                             <option value="" selected="selected">Select One</option>
                                             @if($Menu)
                                                 @foreach($Menu as $MenuI)
@@ -150,6 +150,7 @@
 
 @section('AdminScript')
     <script>
+        $('#menu_id').select2();
         $('#menu_item_status').select2();
         $('#menu_item_description').summernote({
             placeholder: 'News Description',

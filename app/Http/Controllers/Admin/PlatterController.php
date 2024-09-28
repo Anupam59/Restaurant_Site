@@ -17,7 +17,7 @@ class PlatterController extends Controller
                 'modifier_by.name as modifier_by',
                 'platter.*'
             )
-            ->orderBy('platter_id','asc')->paginate(10);
+            ->orderBy('platter_id','desc')->paginate(10);
         return view('Admin/Pages/Platter/PlatterIndex',compact('Platter'));
     }
 
@@ -40,7 +40,7 @@ class PlatterController extends Controller
         if ($platter_image){
             $ImageName =time().".".$platter_image->getClientOriginalExtension();
             $Path = "Images/event/";
-            $ResizeImage = Image::read($platter_image)->resize(640,427);
+            $ResizeImage = Image::read($platter_image)->resize(400,411);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);
@@ -79,7 +79,7 @@ class PlatterController extends Controller
         if ($platter_image){
             $ImageName =time().'.'.$platter_image->getClientOriginalExtension();
             $Path = "Images/event/";
-            $ResizeImage = Image::read($platter_image)->resize(640,427);
+            $ResizeImage = Image::read($platter_image)->resize(400,411);
             $url = $Path.$ImageName;
             $url_database = "/".$Path.$ImageName;
             $ResizeImage ->save($url);

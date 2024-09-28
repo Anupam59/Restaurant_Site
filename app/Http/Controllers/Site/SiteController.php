@@ -15,17 +15,14 @@ use Illuminate\Http\Request;
 class SiteController extends Controller
 {
     public function HomePage(){
-        $Menu = MenuModel::where('status','=',1)->orderBy('menu_id','desc')->get();
-        $MenuItem = MenuItemModel::where('status','=',1)->orderBy('menu_item_id','desc')->get();
-        $Platter = PlatterModel::where('status','=',1)->orderBy('platter_id','desc')->get();
-
-//        $Event = EventModel::where('status','=',1)->orderBy('event_id','desc')->get();
+        $Menu = MenuModel::where('status','=',1)->orderBy('menu_id','asc')->get();
+        $MenuItem = MenuItemModel::where('status','=',1)->orderBy('menu_item_id','desc')->limit(10)->get();
+        $Platter = PlatterModel::where('status','=',1)->orderBy('platter_id','desc')->limit(5)->get();
         $Event = EventModel::where('status','=',1)->inRandomOrder()->limit(3)->get();
-
-
+        $Testimonial = TestimonialModel::where('status','=',1)->inRandomOrder()->limit(5)->get();
         $Gallery = GalleryModel::where('status','=',1)->orderBy('gallery_id','desc')->get();
-        $Testimonial = TestimonialModel::where('status','=',1)->orderBy('testimonial_id','desc')->get();
-        $Chef = ChefModel::where('status','=',1)->orderBy('chef_id','desc')->get();
+        $Chef = ChefModel::where('status','=',1)->inRandomOrder()->limit(3)->get();
+
         return view('Site/Pages/HomePage',compact('Menu','MenuItem','Platter','Event','Gallery','Testimonial','Chef'));
 
     }
